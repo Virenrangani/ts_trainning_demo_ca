@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "289265862580",
+    "project_id": "ts-training-demo-ca",
+    "storage_bucket": "ts-training-demo-ca.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289265862580:android:3d99d79b20c0b8c200d4e1",
+        "android_client_info": {
+          "package_name": "com.example.ts_training_demo_ca"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUAo7IObVKjSIJN2qVHlaelwRQEBEOX-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
