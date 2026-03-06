@@ -10,6 +10,11 @@ import 'package:ts_training_demo_ca/feature/auth/domain/usecase/login_use_case.d
 import 'package:ts_training_demo_ca/feature/auth/domain/usecase/sign_up_use_case.dart';
 import 'package:ts_training_demo_ca/feature/auth/presentation/cubit/login_cubit.dart';
 import 'package:ts_training_demo_ca/feature/auth/presentation/cubit/sign_up_cubit.dart';
+import 'package:ts_training_demo_ca/feature/cart/data/data_source/cart_data_source.dart';
+import 'package:ts_training_demo_ca/feature/cart/data/repository/cart_repository_impl.dart';
+import 'package:ts_training_demo_ca/feature/cart/domain/repository/cart_repository.dart';
+import 'package:ts_training_demo_ca/feature/cart/domain/usecase/cart_use_case.dart';
+import 'package:ts_training_demo_ca/feature/cart/presentation/cubit/cart_cubit.dart';
 import 'package:ts_training_demo_ca/feature/product/data/data_source/product_data_source.dart';
 import 'package:ts_training_demo_ca/feature/product/data/repository/product_repository_impl.dart';
 import 'package:ts_training_demo_ca/feature/product/domain/repository/product_repository.dart';
@@ -44,5 +49,9 @@ class Injection {
     sl.registerLazySingleton<ProductUseCase>(()=>ProductUseCase(sl()));
     sl.registerFactory<ProductCubit>(()=>ProductCubit(sl()));
 
+    sl.registerLazySingleton<CartDataSource>(()=>CartDataSourceImpl());
+    sl.registerLazySingleton<CartRepository>(()=>CartRepositoryImpl(sl()));
+    sl.registerLazySingleton<CartUseCase>(()=>CartUseCase(sl()));
+    sl.registerFactory<CartCubit>(()=>CartCubit(sl()));
   }
 }
