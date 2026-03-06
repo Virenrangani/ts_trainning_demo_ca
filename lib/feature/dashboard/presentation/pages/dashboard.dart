@@ -36,12 +36,13 @@ class _DashboardState extends State<Dashboard> {
             children: [
               Text(CustomString.flipkart,style: CustomTextStyles.h2.copyWith(color: CustomColor.info),),
               SizedBox(width: 8,),
-              Icon(FontAwesomeIcons.basketShopping,color: CustomColor.info)
+              Icon(FontAwesomeIcons.basketShopping,)
             ],
           ),
+          iconTheme: IconThemeData(color: CustomColor.info),
           actions: [
-            IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.heart,color: CustomColor.info,)),
-            IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.cartShopping,color: CustomColor.info)),
+            IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.heart,)),
+            IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.cartShopping,)),
           ],
           bottom: TabBar(
             isScrollable: true,

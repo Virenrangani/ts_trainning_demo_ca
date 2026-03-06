@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
+import 'package:ts_training_demo_ca/feature/cart/presentation/pages/cart_page.dart';
 import 'package:ts_training_demo_ca/feature/profile/profile_page.dart';
 
 import '../dashboard/presentation/pages/dashboard.dart';
@@ -28,7 +29,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     Dashboard(),
     Center(child: Text("Play Page")),
     Center(child: Text("Category"),),
-    Center(child: Text("Cart Page")),
+    CartPage(),
     ProfilePage()
   ];
 
@@ -46,7 +47,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         children: _pages,
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 18, vertical: 20),
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: GNav(
           selectedIndex: _selectedIndex,
           onTabChange: _onItemTapped,
@@ -61,7 +62,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           activeColor: CustomColor.secondary,
           iconSize: 24,
           tabBackgroundColor: CustomColor.flip.withOpacity(0.2),
-          padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          padding:  EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           tabs: [
             GButton(icon: MdiIcons.home, text: 'Home'),
             GButton(icon: MdiIcons.play, text: 'Play'),

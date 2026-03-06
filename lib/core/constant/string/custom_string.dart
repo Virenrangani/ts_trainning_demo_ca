@@ -52,7 +52,7 @@ class CustomString {
 
   static const String forgetPassword="Forget password?";
 
-  static const String flipkart ="Flipkart";
+  static const String flipkart ="Lootkart";
   static const String search ="Search";
   static const String searchItem ="Search for products and more";
 

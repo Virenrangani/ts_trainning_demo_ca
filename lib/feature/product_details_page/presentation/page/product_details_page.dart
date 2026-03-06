@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
 import 'package:ts_training_demo_ca/core/constant/font_size/custom_text_style.dart';
+import 'package:ts_training_demo_ca/feature/cart/presentation/pages/cart_page.dart';
 import 'package:ts_training_demo_ca/feature/product/domain/entity/product_entity.dart';
 
 class ProductDetailPage extends StatefulWidget {
@@ -15,6 +16,7 @@ class ProductDetailPage extends StatefulWidget {
 
 class _ProductDetailPageState extends State<ProductDetailPage> {
   int count=1;
+  late final ProductEntity product;
 
   @override
   Widget build(BuildContext context) {
@@ -45,14 +47,13 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
             Container(
               width: double.infinity,
               height: 300,
               color: Colors.white,
               child: Image.network(
                 widget.product.image,
-                fit: BoxFit.contain,
+                fit: BoxFit.scaleDown,
               ),
             ),
 
@@ -92,7 +93,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     ),
                     child: Row(
                       children: [
-
                         InkWell(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(12),
@@ -102,7 +102,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                               ? () => setState(() => count--)
                               : null,
                           child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                            padding:  EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                             decoration: BoxDecoration(
                               color: count > 1 ? Colors.pink.shade400 : Colors.grey.shade300,
                               borderRadius: BorderRadius.only(
@@ -126,7 +126,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           ),
                           child: Padding(
                             key: ValueKey<int>(count),
-                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            padding:  EdgeInsets.symmetric(horizontal: 16),
                             child: Text(
                               count.toString(),
                               style: CustomTextStyles.bodyMedium.copyWith(
@@ -142,11 +142,11 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                             topRight: Radius.circular(12),
                             bottomRight: Radius.circular(12),
                           ),
-                          onTap: count < 10
+                          onTap: count < 20
                               ? () => setState(() => count++)
                               : null,
                           child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                             decoration: BoxDecoration(
                               color: count < 10 ? Colors.pink.shade400 : Colors.grey.shade300,
                               borderRadius: BorderRadius.only(
@@ -180,7 +180,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 style: CustomTextStyles.bodyLarge
               ),
             ),
-
             Padding(
               padding: EdgeInsets.all(12),
               child: Text(
@@ -193,9 +192,16 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
       ),
 
       bottomNavigationBar: Padding(
-        padding:  EdgeInsets.all(16),
+        padding:  EdgeInsets.all(20),
         child: ElevatedButton.icon(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context)=>CartPage()
+                )
+            );
+          },
           icon: Icon(Icons.shopping_cart),
           label: Text("Add to Cart", style: TextStyle(fontSize: 16)),
           style: ElevatedButton.styleFrom(
