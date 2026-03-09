@@ -69,7 +69,7 @@ class CartPage extends StatelessWidget {
                   if (state.product.isEmpty) {
                     return buildEmptyState();
                   }
-                  return buildCartList(context, state.product);
+                  return CartList(products: state.product, context: context,);
                 }
 
                 if (state is CartFailure) {

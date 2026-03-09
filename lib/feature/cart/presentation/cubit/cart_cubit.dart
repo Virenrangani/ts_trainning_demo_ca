@@ -31,5 +31,16 @@ class CartCubit extends Cubit<CartState>{
     }
   }
 
+  Future<void> removeItem(String id)async{
 
+    emit(CartLoading());
+    try{
+      await cartUseCase.callRemoveItem(id);
+      emit(CartRemoveItem());
+      await getProduct();
+    }catch(e){
+      emit(CartFailure(e.toString()));
+      throw Exception("Failed to remove product: $e");
+    }
+  }
 }

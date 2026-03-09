@@ -36,5 +36,9 @@ class CartRepositoryImpl extends CartRepository{
       price: product.price,
     )).toList();
   }
-  
+
+  @override
+  Future<void> removeProduct(String id) async {
+     await cartDataSource.removeProduct(id);
+  }
 }

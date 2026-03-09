@@ -16,6 +16,8 @@ class CartSuccess extends CartState{
   CartSuccess(this.product);
 }
 
+class CartRemoveItem extends CartState{}
+
 class CartFailure extends CartState{
   final String message;
   CartFailure(this.message);

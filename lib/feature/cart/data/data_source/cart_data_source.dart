@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ts_training_demo_ca/feature/cart/data/model/product_model.dart';
 
 abstract class CartDataSource {
   Future<ProductModel> addProduct(String title,String category,String imageUrl,double price);
   Future<List<ProductModel>> getProduct();
+  Future<void> removeProduct(String id);
 }
 
 
@@ -48,5 +50,14 @@ class CartDataSourceImpl extends CartDataSource {
         price: doc["price"],
       );
     }).toList();
+  }
+
+  @override
+  Future<void> removeProduct(String id)async {
+    try{
+      await FirebaseFirestore.instance.collection("cart").doc(id).delete();
+    }catch(e){
+      throw Exception("Something went to wrong" + e.toString());
+    }
   }
 }

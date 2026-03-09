@@ -12,4 +12,8 @@ class CartUseCase {
   Future<List<ProductEntity>> callGetProduct()async{
     return await cartRepository.getProduct();
   }
+
+  Future<void> callRemoveItem(String id)async{
+    await cartRepository.removeProduct(id);
+  }
 }
