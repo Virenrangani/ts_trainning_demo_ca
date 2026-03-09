@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
 import '../../../../core/constant/font_size/custom_text_style.dart';
 
 class IncrementDecrement extends StatelessWidget {
@@ -30,7 +31,7 @@ class IncrementDecrement extends StatelessWidget {
             ),
             onTap: onDecrement,
             child: Container(
-              padding:  EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+              padding: CustomPadding.edgeSymmetricHori8Ver12,
               decoration: BoxDecoration(
                 color: count > 1 ? Colors.pink.shade400 : Colors.grey.shade300,
                 borderRadius: BorderRadius.only(
@@ -69,7 +70,7 @@ class IncrementDecrement extends StatelessWidget {
             ),
             onTap: onIncrement,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+              padding: CustomPadding.edgeSymmetricHori8Ver12,
               decoration: BoxDecoration(
                 color: count < 10 ? Colors.pink.shade400 : Colors.grey.shade300,
                 borderRadius: BorderRadius.only(

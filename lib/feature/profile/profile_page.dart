@@ -3,18 +3,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
 import 'package:ts_training_demo_ca/core/constant/font_size/custom_text_style.dart';
+import 'package:ts_training_demo_ca/core/constant/string/custom_string.dart';
 import 'package:ts_training_demo_ca/feature/profile/widgets/custom_card.dart';
 import 'package:ts_training_demo_ca/feature/profile/widgets/custom_list_tile.dart';
 import 'package:ts_training_demo_ca/feature/profile/widgets/image_picker.dart';
 
-class ProfilePage extends StatefulWidget {
+class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,11 +28,11 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           child: Column(
           children: [
-            customListTile(FontAwesomeIcons.user, "Edit Profile"),
-            customListTile(FontAwesomeIcons.locationArrow, "Address Management"),
-            customListTile(FontAwesomeIcons.hireAHelper, "Help"),
-            customListTile(MdiIcons.accountSettings, "Settings"),
-            customListTile(MdiIcons.logout, "Logout"),
+            CustomListTile(icon:FontAwesomeIcons.user, text:CustomString.editProfile),
+            CustomListTile(icon:FontAwesomeIcons.locationArrow, text:CustomString.addressProfile),
+            CustomListTile(icon:FontAwesomeIcons.hireAHelper, text:CustomString.help),
+            CustomListTile(icon:MdiIcons.accountSettings, text:CustomString.settings),
+            CustomListTile(icon:MdiIcons.logout, text:CustomString.logOut),
           ],
           ),
         ),
@@ -61,16 +57,17 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: ImagePickerPage()
                   ),
                   SizedBox(height: 20,),
-                  Text("Viren Rangani",style: CustomTextStyles.bodyLarge.copyWith(color: CustomColor.textLight),),
+                  Text(CustomString.viren,style: CustomTextStyles.bodyLarge.copyWith(color: CustomColor.textLight),),
                   SizedBox(height: 10,),
-                  Text("viren@gmail.com",style: CustomTextStyles.bodyMedium.copyWith(color: CustomColor.textLight),),
+                  Text(CustomString.virenMail,style: CustomTextStyles.bodyMedium.copyWith(color: CustomColor.textLight),),
                   SizedBox(height: 15,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      customCards(FontAwesomeIcons.bagShopping, "Order",(){print("Order");}),
-                      customCards(FontAwesomeIcons.gift, "Voucher",(){print("Voucher");}),
-                      customCards(FontAwesomeIcons.history, "History",(){print("History");})
+                      CustomCard(icon: FontAwesomeIcons.bagShopping, text: CustomString.order, onTap: (){print("Order");},),
+                      CustomCard(icon:FontAwesomeIcons.gift, text:CustomString.voucher,onTap:(){print("Voucher");}),
+                      CustomCard(icon:FontAwesomeIcons.history, text:CustomString.history,onTap: (){print("History");}),
+                      CustomCard(icon:FontAwesomeIcons.gift, text:CustomString.giftCoupons,onTap: (){print("Voucher");}),
                     ],
                   )
                 ],

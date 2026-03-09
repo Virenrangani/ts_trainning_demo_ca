@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
+import 'package:ts_training_demo_ca/core/constant/string/custom_string.dart';
 import 'package:ts_training_demo_ca/feature/cart/domain/entity/product_entity.dart';
 import 'package:ts_training_demo_ca/feature/cart/presentation/cubit/cart_cubit.dart';
 import 'package:ts_training_demo_ca/feature/cart/presentation/widget/increment_decrement.dart';
@@ -44,17 +46,17 @@ class _CartListState extends State<CartList> {
       children: [
         Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          padding: CustomPadding.edgeSymmetricHori16Ver8,
           color: Colors.white,
           child: Text(
-            "${widget.products.length} item${widget.products.length > 1 ? 's' : ''} in your cart",
+            "${widget.products.length} item${widget.products.length > 1 ? 's' : ''} ${CustomString.inCart}",
             style: CustomTextStyles.bodySmall.copyWith(color: Colors.grey),
           ),
         ),
 
         Expanded(
           child: ListView.builder(
-            padding: EdgeInsets.all(12),
+            padding: CustomPadding.edgeAll12,
             itemCount: widget.products.length,
             itemBuilder: (context, index) {
               return CartItemCard(
@@ -75,7 +77,7 @@ class _CartListState extends State<CartList> {
           ),
         ),
 
-        buildSummaryBar(total),
+        CartSummary(total: total)
       ],
     );
   }
@@ -98,7 +100,7 @@ class CartItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-          margin: EdgeInsets.only(bottom: 12),
+          margin: CustomPadding.edgeAll8,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(16),
@@ -111,7 +113,7 @@ class CartItemCard extends StatelessWidget {
             ],
           ),
           child: Padding(
-            padding: EdgeInsets.all(12),
+            padding: CustomPadding.edgeAll12,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -140,7 +142,7 @@ class CartItemCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                        padding: CustomPadding.edgeSymmetricHori8Ver2,
                         decoration: BoxDecoration(
                           color: Colors.pink.shade50,
                           borderRadius: BorderRadius.circular(20),

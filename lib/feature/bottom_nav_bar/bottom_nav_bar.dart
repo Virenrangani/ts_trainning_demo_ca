@@ -5,6 +5,7 @@ import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
 import 'package:ts_training_demo_ca/feature/cart/presentation/pages/cart_page.dart';
 import 'package:ts_training_demo_ca/feature/profile/profile_page.dart';
 
+import '../../core/constant/string/custom_string.dart';
 import '../dashboard/presentation/pages/dashboard.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -27,8 +28,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final List<Widget> _pages = const [
     Dashboard(),
-    Center(child: Text("Play Page")),
-    Center(child: Text("Category"),),
+    Center(child: Text(CustomString.play)),
+    Center(child: Text(CustomString.category),),
     CartPage(),
     ProfilePage()
   ];
@@ -64,11 +65,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
           tabBackgroundColor: CustomColor.flip.withOpacity(0.2),
           padding:  EdgeInsets.symmetric(horizontal: 8, vertical: 8),
           tabs: [
-            GButton(icon: MdiIcons.home, text: 'Home'),
-            GButton(icon: MdiIcons.play, text: 'Play'),
-            GButton(icon: MdiIcons.viewDashboard, text: 'Categories'),
-            GButton(icon: MdiIcons.cart, text: 'Cart'),
-            GButton(icon: MdiIcons.account, text: 'Profile'),
+            GButton(icon: MdiIcons.home, text: CustomString.home),
+            GButton(icon: MdiIcons.play, text: CustomString.play),
+            GButton(icon: MdiIcons.viewDashboard, text: CustomString.category),
+            GButton(icon: MdiIcons.cart, text:CustomString.cart),
+            GButton(icon: MdiIcons.account, text:CustomString.profile),
           ],
         ),
       ),

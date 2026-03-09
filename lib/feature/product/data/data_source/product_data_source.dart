@@ -11,6 +11,7 @@ class ProductDataSourceImpl extends ProductDataSource{
 
   @override
   Future<List<ProductModel>> getProducts()async{
+    await Future.delayed(Duration(seconds: 3));
     final response=await dio.get("https://fakestoreapi.com/products");
 
     if(response.statusCode==200){

@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ts_training_demo_ca/core/constant/string/custom_string.dart';
 import 'package:ts_training_demo_ca/feature/cart/domain/usecase/cart_use_case.dart';
 import 'package:ts_training_demo_ca/feature/cart/presentation/cubit/cart_state.dart';
 
@@ -40,7 +41,6 @@ class CartCubit extends Cubit<CartState>{
       await getProduct();
     }catch(e){
       emit(CartFailure(e.toString()));
-      throw Exception("Failed to remove product: $e");
     }
   }
 }

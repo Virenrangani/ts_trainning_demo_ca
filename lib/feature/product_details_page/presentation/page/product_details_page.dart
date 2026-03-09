@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_it/get_it.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
 import 'package:ts_training_demo_ca/core/constant/font_size/custom_text_style.dart';
+import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
+import 'package:ts_training_demo_ca/core/constant/string/custom_string.dart';
 import 'package:ts_training_demo_ca/feature/cart/presentation/cubit/cart_cubit.dart';
 import 'package:ts_training_demo_ca/feature/cart/presentation/pages/cart_page.dart';
 import 'package:ts_training_demo_ca/feature/product/domain/entity/product_entity.dart';
 
-class ProductDetailPage extends StatefulWidget {
+class ProductDetailPage extends StatelessWidget {
   final ProductEntity product;
 
   const ProductDetailPage({super.key, required this.product});
-
-  @override
-  State<ProductDetailPage> createState() => _ProductDetailPageState();
-}
-
-class _ProductDetailPageState extends State<ProductDetailPage> {
-  int count=1;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +39,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 ),
               ),
               title: Text(
-                widget.product.title,
+                product.title,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(color: CustomColor.info, fontSize: 16),
@@ -58,37 +55,48 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     height: 300,
                     color: Colors.white,
                     child: Image.network(
-                      widget.product.image,
+                      product.image,
                       fit: BoxFit.scaleDown,
                     ),
                   ),
 
                   Padding(
-                    padding:  EdgeInsets.fromLTRB(16, 16, 16, 0),
-                    child: Chip(
-                      label: Text(
-                        widget.product.category.toUpperCase(),
-                        style: CustomTextStyles.bodySmall,
-                      ),
-                      backgroundColor: CustomColor.flip.withOpacity(0.6),
+                    padding:  CustomPadding.edgeAll16,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Chip(
+                          label: Text(
+                            product.category.toUpperCase(),
+                            style: CustomTextStyles.bodySmall,
+                          ),
+                          backgroundColor: CustomColor.flip.withOpacity(0.6),
+                        ),
+                        Column(
+                          children: [
+                            IconButton(onPressed: (){}, icon: Icon(MdiIcons.send,size: 30,),),
+                            IconButton(onPressed: (){}, icon: Icon(MdiIcons.heartPlus,size: 30,),),
+                          ],
+                        )
+                      ],
                     ),
                   ),
 
                   Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: CustomPadding.edgeAll12,
                     child: Text(
-                      widget.product.title,
+                      product.title,
                       style: CustomTextStyles.h3
                     ),
                   ),
 
                   Padding(
-                    padding: EdgeInsets.all(12),
+                    padding: CustomPadding.edgeAll12,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "\$${widget.product.price}",
+                          "\$${product.price}",
                           style: CustomTextStyles.h2.copyWith(color: CustomColor.success),
                         ),
                       ],
@@ -96,37 +104,35 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   ),
 
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                    padding: CustomPadding.edgeSymmetricHori12Ver8,
                     child: Divider(color: Colors.grey.shade300),
                   ),
 
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    child: Text(
-                      "Description",
+                    padding: CustomPadding.edgeSymmetricHori12,
+                    child: Text(CustomString.description,
                       style: CustomTextStyles.bodyLarge
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(12),
+                    padding: CustomPadding.edgeAll12,
                     child: Text(
-                      widget.product.description!,
+                      product.description!,
                       style: CustomTextStyles.bodySmall
                     ),
                   ),
                 ],
               ),
             ),
-
             bottomNavigationBar: Padding(
-              padding:  EdgeInsets.all(20),
+              padding:  CustomPadding.edgeAll20,
               child: ElevatedButton.icon(
                 onPressed: ()async {
                   await context.read<CartCubit>().addProduct(
-                      widget.product.title,
-                      widget.product.category,
-                      widget.product.price,
-                      widget.product.image
+                      product.title,
+                      product.category,
+                      product.price,
+                      product.image
                   );
                   Navigator.push(
                       context,
@@ -136,7 +142,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   );
                 },
                 icon: Icon(Icons.shopping_cart),
-                label: Text("Add to Cart", style: TextStyle(fontSize: 16)),
+                label: Text(CustomString.addToCart, style: TextStyle(fontSize: 16)),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pink.shade400,
                   foregroundColor: Colors.white,

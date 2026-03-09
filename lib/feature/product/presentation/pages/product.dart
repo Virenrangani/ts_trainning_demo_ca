@@ -18,7 +18,7 @@ class ProductPage extends StatelessWidget {
       child: BlocBuilder<ProductCubit, ProductState>(
         builder: (context, state) {
           if (state is ProductLoading) {
-            return Center(child: loadingProduct());
+            return Center(child: LoadingProduct());
           }
 
           if (state is ProductFailure) {

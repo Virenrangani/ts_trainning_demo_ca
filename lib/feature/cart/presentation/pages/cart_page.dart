@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
 import 'package:ts_training_demo_ca/core/constant/font_size/custom_text_style.dart';
+import 'package:ts_training_demo_ca/core/constant/string/custom_string.dart';
 import 'package:ts_training_demo_ca/core/widget/snack_bar/custom_snack_bar.dart';
 import 'package:ts_training_demo_ca/feature/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:ts_training_demo_ca/feature/cart/presentation/cubit/cart_cubit.dart';
@@ -43,7 +44,7 @@ class CartPage extends StatelessWidget {
                 icon: Icon(Icons.arrow_back_ios, color: CustomColor.info),
               ),
               title: Text(
-                "My Cart",
+                CustomString.myCart,
                 style: CustomTextStyles.h3.copyWith(color: CustomColor.info),
               ),
             ),
@@ -51,7 +52,7 @@ class CartPage extends StatelessWidget {
             body: BlocConsumer<CartCubit, CartState>(
               listener: (context, state) {
                 if (state is CartAddProduct) {
-                  CustomSnacksBar.showSuccess(context, "${state.product.title} added!" );
+                  CustomSnacksBar.showSuccess(context, "${state.product.title}+ ${CustomString.added}");
                   context.read<CartCubit>().getProduct();
                 }
 
@@ -62,21 +63,21 @@ class CartPage extends StatelessWidget {
               builder: (context, state) {
 
                 if (state is CartLoading) {
-                  return buildLoadingState();
+                  return CartLoadingState();
                 }
 
                 if (state is CartSuccess) {
                   if (state.product.isEmpty) {
-                    return buildEmptyState();
+                    return CartEmptyState();
                   }
                   return CartList(products: state.product, context: context,);
                 }
 
                 if (state is CartFailure) {
-                  return buildErrorState(state.message);
+                  return CartErrorState(message:state.message);
                 }
 
-                return buildEmptyState();
+                return CartEmptyState();
               },
             ),
           );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
 import 'package:ts_training_demo_ca/feature/dashboard/presentation/widgets/scrollable_card.dart';
 import '../../../../core/constant/color/custom_color.dart';
 import '../../domain/entity/product_entity.dart';
@@ -9,13 +10,13 @@ Widget productList(List<ProductEntity> products) {
     slivers: [
       SliverToBoxAdapter(
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 12),
-          child: scrollableCards(),
+          padding: CustomPadding.edgeOnlyBottom12,
+          child: ScrollableCard(),
         ),
       ),
 
       SliverPadding(
-        padding: const EdgeInsets.all(12),
+        padding: CustomPadding.edgeAll12,
         sliver: SliverGrid(
           delegate: SliverChildBuilderDelegate(
                 (context, index) {
@@ -58,7 +59,7 @@ Widget productList(List<ProductEntity> products) {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(8),
+                          padding: CustomPadding.edgeAll8,
                           child: Text(
                             product.title,
                             maxLines: 2,
@@ -67,7 +68,7 @@ Widget productList(List<ProductEntity> products) {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          padding: CustomPadding.edgeSymmetricHori8,
                           child: Text(
                             "\$${product.price}",
                             style: const TextStyle(
