@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:ts_training_demo_ca/core/constant/border/custom_border_radius.dart';
 import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
 class CartLoadingState extends StatelessWidget {
   const CartLoadingState({super.key});
@@ -16,7 +17,7 @@ class CartLoadingState extends StatelessWidget {
           height: 110,
           decoration: BoxDecoration(
             color: Colors.grey.shade200,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: CustomBorderRadius.cir16
           ),
         ),
       ),

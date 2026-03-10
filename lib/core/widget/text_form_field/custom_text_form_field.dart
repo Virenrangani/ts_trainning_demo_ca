@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ts_training_demo_ca/core/constant/border/custom_border_radius.dart';
 import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
+import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
 
 class CustomFormField extends StatelessWidget {
   final String labelText;
@@ -59,30 +61,29 @@ class CustomFormField extends StatelessWidget {
         )
             : null,
 
-        contentPadding:
-        const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        contentPadding:CustomPadding.edgeSymmetricHori16Ver8,
 
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: CustomBorderRadius.cir12,
         ),
 
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: CustomBorderRadius.cir12,
           borderSide: const BorderSide(color: CustomColor.primarySurface),
         ),
 
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: CustomBorderRadius.cir12,
           borderSide:  BorderSide(color:borderColor ??CustomColor.success, width: 2),
         ),
 
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: CustomBorderRadius.cir12,
           borderSide: const BorderSide(color: CustomColor.error),
         ),
 
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: CustomBorderRadius.cir12,
           borderSide: const BorderSide(color: CustomColor.error, width: 2),
         ),
       ),

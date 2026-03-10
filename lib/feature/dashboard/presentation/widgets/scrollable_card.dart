@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
 import 'package:ts_training_demo_ca/core/constant/font_size/custom_text_style.dart';
 
+import '../../../../core/constant/border/custom_border_radius.dart';
+
 class ScrollableCard extends StatelessWidget {
   const ScrollableCard({super.key});
 
@@ -56,7 +58,7 @@ class FlipKartBannerCard extends StatelessWidget {
     return Container(
       height: 150,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: CustomBorderRadius.cir16,
         boxShadow: [
           BoxShadow(
             color: CustomColor.textSecondary.withOpacity(0.5),
@@ -66,7 +68,7 @@ class FlipKartBannerCard extends StatelessWidget {
         ],
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: CustomBorderRadius.cir16,
         child: Stack(
           children: [
             Positioned.fill(

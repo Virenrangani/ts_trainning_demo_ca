@@ -4,6 +4,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_it/get_it.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:ts_training_demo_ca/core/constant/border/custom_border_radius.dart';
 import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
 import 'package:ts_training_demo_ca/core/constant/font_size/custom_text_style.dart';
 import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
@@ -47,22 +49,22 @@ class ProductDetailPage extends StatelessWidget {
               iconTheme: IconThemeData(color: CustomColor.info),
             ),
             body: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 300,
-                    color: Colors.white,
-                    child: Image.network(
-                      product.image,
-                      fit: BoxFit.scaleDown,
+              child: Padding(
+                padding: CustomPadding.edgeAll16,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: 300,
+                      color: Colors.white,
+                      child: Image.network(
+                        product.image,
+                        fit: BoxFit.scaleDown,
+                      ),
                     ),
-                  ),
 
-                  Padding(
-                    padding:  CustomPadding.edgeAll16,
-                    child: Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Chip(
@@ -80,48 +82,36 @@ class ProductDetailPage extends StatelessWidget {
                         )
                       ],
                     ),
-                  ),
 
-                  Padding(
-                    padding: CustomPadding.edgeAll12,
-                    child: Text(
+                    Text(
                       product.title,
                       style: CustomTextStyles.h3
                     ),
-                  ),
 
-                  Padding(
-                    padding: CustomPadding.edgeAll12,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "\$${product.price}",
-                          style: CustomTextStyles.h2.copyWith(color: CustomColor.success),
-                        ),
-                      ],
+                     Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "\$${product.price}",
+                            style: CustomTextStyles.h2.copyWith(color: CustomColor.success),
+                          ),
+                        ],
+                      ),
+
+                    Padding(
+                      padding: CustomPadding.edgeSymmetricHori12Ver8,
+                      child: Divider(color: Colors.grey.shade300),
                     ),
-                  ),
 
-                  Padding(
-                    padding: CustomPadding.edgeSymmetricHori12Ver8,
-                    child: Divider(color: Colors.grey.shade300),
-                  ),
-
-                  Padding(
-                    padding: CustomPadding.edgeSymmetricHori12,
-                    child: Text(CustomString.description,
+                    Text(CustomString.description,
                       style: CustomTextStyles.bodyLarge
                     ),
-                  ),
-                  Padding(
-                    padding: CustomPadding.edgeAll12,
-                    child: Text(
+                    Text(
                       product.description!,
                       style: CustomTextStyles.bodySmall
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             bottomNavigationBar: Padding(
@@ -141,14 +131,18 @@ class ProductDetailPage extends StatelessWidget {
                       )
                   );
                 },
-                icon: Icon(Icons.shopping_cart),
-                label: Text(CustomString.addToCart, style: TextStyle(fontSize: 16)),
+                label: Shimmer.fromColors(
+                    period: Duration(seconds: 5),
+                    baseColor: Colors.white70,
+                    highlightColor: Colors.black,
+                    child: Text(CustomString.addToCart, style: CustomTextStyles.h3)
+                ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.pink.shade400,
                   foregroundColor: Colors.white,
                   minimumSize: Size(double.infinity, 52),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: CustomBorderRadius.cir8
                   ),
                 ),
               ),

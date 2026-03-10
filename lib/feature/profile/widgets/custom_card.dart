@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
+import '../../../core/constant/border/custom_border_radius.dart';
+
 class CustomCard extends StatelessWidget {
   final IconData icon;
   final String text ;
@@ -9,12 +11,12 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      borderRadius: BorderRadius.circular(25),
+      borderRadius: CustomBorderRadius.cir24,
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
         splashColor: CustomColor.textSecondary,
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: CustomBorderRadius.cir24,
         child: SizedBox(
           height:MediaQuery.sizeOf(context).height*0.1,
           width: MediaQuery.sizeOf(context).height*0.09,
@@ -24,7 +26,7 @@ class CustomCard extends StatelessWidget {
             color:CustomColor.general.withOpacity(0.7),
             surfaceTintColor: Colors.transparent,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: CustomBorderRadius.cir24,
               side: const BorderSide(color: Colors.white24, width: 2),
             ),
             child: Column(

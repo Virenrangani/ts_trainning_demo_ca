@@ -25,7 +25,7 @@ class LoginDataSourceImpl implements LoginDataSource {
       final user=result.user!;
 
       if(!user.emailVerified){
-        throw Exception("user is not verified");
+        throw Exception(CustomString.userNotVerify);
       }
       return UserModel.fromFirebase(user);
     } catch (e) {

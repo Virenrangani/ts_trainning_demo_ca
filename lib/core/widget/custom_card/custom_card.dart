@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ts_training_demo_ca/core/constant/border/custom_border_radius.dart';
 import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
 import 'package:ts_training_demo_ca/core/constant/font_size/custom_text_style.dart';
+import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
 
 class CustomCard extends StatelessWidget {
   final String? title;
@@ -40,11 +42,11 @@ class CustomCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
         ),
         child: Padding(
-          padding: padding ?? const EdgeInsets.all(16),
+          padding: padding ?? CustomPadding.edgeAll16,
           child: Row(
             children: [
               Column(
-                children: [
+                children:[
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -81,7 +83,7 @@ class CustomCard extends StatelessWidget {
               ),
               if (imageUrl != null)
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: CustomBorderRadius.cir12,
                   child: Image.network(
                     imageUrl!,
                     height: 150,

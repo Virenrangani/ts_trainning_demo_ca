@@ -12,6 +12,7 @@ class CustomString {
   static const String passwordRequired="Password is required";
   static const String password="Password";
   static const String passwordHint="Enter Password";
+  static const String userNotVerify="user is not verified";
 
   static const String passwordNotContainsSpace="Password should not contain spaces";
 
@@ -52,7 +53,7 @@ class CustomString {
 
   static const String forgetPassword="Forget password?";
 
-  static const String flipkart ="Lootkart";
+  static const String flipkart ="flipkart";
   static const String search ="Search";
   static const String searchItem ="Search for products and more";
 

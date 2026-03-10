@@ -17,7 +17,27 @@ class Dashboard extends StatefulWidget {
   State<Dashboard> createState() => _DashboardState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _DashboardState extends State<Dashboard> with SingleTickerProviderStateMixin{
+  late AnimationController controller;
+  late Animation<Color?> colorAnimation;
+
+  @override
+  void initState(){
+    super.initState();
+    controller=AnimationController(vsync: this,duration: Duration(seconds: 3));
+    // controller.forward();
+    controller.repeat(reverse: true);
+
+    colorAnimation=ColorTween(
+      begin:CustomColor.info.withOpacity(0.3),
+      end: CustomColor.info
+    ).animate(controller);
+  }
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -36,7 +56,14 @@ class _DashboardState extends State<Dashboard> {
           ),
           title: Row(
             children: [
-              Text(CustomString.flipkart,style: CustomTextStyles.h2.copyWith(color: CustomColor.info),),
+              AnimatedBuilder(
+                  animation: colorAnimation,
+                builder: (context, child) {
+                    return Text(CustomString.flipkart,
+                      style: CustomTextStyles.h2.copyWith(color: colorAnimation.value),
+                    );
+              },
+              ),
               SizedBox(width: 8,),
               Icon(FontAwesomeIcons.basketShopping,)
             ],

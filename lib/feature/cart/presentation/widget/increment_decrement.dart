@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
+import '../../../../core/constant/border/custom_border_radius.dart';
 import '../../../../core/constant/font_size/custom_text_style.dart';
 
 class IncrementDecrement extends StatelessWidget {
@@ -19,7 +20,7 @@ class IncrementDecrement extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.pink.shade50,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: CustomBorderRadius.cir12,
         border: Border.all(color: Colors.pink.shade200),
       ),
       child: Row(
@@ -55,7 +56,7 @@ class IncrementDecrement extends StatelessWidget {
             ),
             child: Padding(
               key: ValueKey<int>(count),
-              padding:  EdgeInsets.symmetric(horizontal: 12),
+              padding: CustomPadding.edgeSymmetricHori12,
               child: Text(
                   count.toString(),
                   style: CustomTextStyles.bodyLarge
@@ -64,19 +65,13 @@ class IncrementDecrement extends StatelessWidget {
           ),
 
           InkWell(
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(12),
-              bottomRight: Radius.circular(12),
-            ),
+            borderRadius: CustomBorderRadius.onlyTopBottomRight12,
             onTap: onIncrement,
             child: Container(
               padding: CustomPadding.edgeSymmetricHori8Ver12,
               decoration: BoxDecoration(
                 color: count < 10 ? Colors.pink.shade400 : Colors.grey.shade300,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(12),
-                  bottomRight: Radius.circular(12),
-                ),
+                borderRadius: CustomBorderRadius.onlyTopBottomRight12,
               ),
               child: Icon(
                 MdiIcons.plus,

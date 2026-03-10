@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:ts_training_demo_ca/core/constant/border/custom_border_radius.dart';
 import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
 import 'package:ts_training_demo_ca/core/constant/string/custom_string.dart';
 import 'package:ts_training_demo_ca/feature/cart/domain/entity/product_entity.dart';
@@ -103,7 +104,7 @@ class CartItemCard extends StatelessWidget {
           margin: CustomPadding.edgeAll8,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: CustomBorderRadius.cir16,
             boxShadow: [
               BoxShadow(
                 color: Colors.pink.shade50,
@@ -119,7 +120,7 @@ class CartItemCard extends StatelessWidget {
               children: [
 
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: CustomBorderRadius.cir12,
                   child: Container(
                     width: 85,
                     height: 85,
@@ -145,7 +146,7 @@ class CartItemCard extends StatelessWidget {
                         padding: CustomPadding.edgeSymmetricHori8Ver2,
                         decoration: BoxDecoration(
                           color: Colors.pink.shade50,
-                          borderRadius: BorderRadius.circular(20),
+                          borderRadius: CustomBorderRadius.cir20,
                         ),
                         child: Text(
                           product.category.toUpperCase(),

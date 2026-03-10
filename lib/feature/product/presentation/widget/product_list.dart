@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
 import 'package:ts_training_demo_ca/feature/dashboard/presentation/widgets/scrollable_card.dart';
+import '../../../../core/constant/border/custom_border_radius.dart';
 import '../../../../core/constant/color/custom_color.dart';
 import '../../domain/entity/product_entity.dart';
 import '../../../product_details_page/presentation/page/product_details_page.dart';
@@ -21,7 +22,7 @@ Widget productList(List<ProductEntity> products) {
               return Card(
                 elevation: 3,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: CustomBorderRadius.cir12,
                 ),
                 child: InkWell(
                   onTap: (){
@@ -35,7 +36,7 @@ Widget productList(List<ProductEntity> products) {
                       gradient: LinearGradient(
                         colors: [Colors.pink.shade400, Colors.pink.shade100],
                       ),
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: CustomBorderRadius.cir12,
                       border: Border.all(
                         color: CustomColor.general.withOpacity(0.5),
                       ),
@@ -45,9 +46,7 @@ Widget productList(List<ProductEntity> products) {
                       children: [
                         Expanded(
                           child: ClipRRect(
-                            borderRadius: const BorderRadius.vertical(
-                              top: Radius.circular(12),
-                            ),
+                            borderRadius: CustomBorderRadius.verTop12,
                             child: Image.network(
                               product.image,
                               width: double.infinity,

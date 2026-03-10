@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
 import 'package:ts_training_demo_ca/core/constant/font_size/custom_text_style.dart';
 
+import '../../constant/border/custom_border_radius.dart';
+
 class CustomSnacksBar {
 
   static void showSuccess(BuildContext context, String message) {
@@ -47,7 +49,7 @@ class CustomSnacksBar {
         elevation: 6,
         margin: const EdgeInsets.all(16),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: CustomBorderRadius.cir16,
         ),
         duration: const Duration(seconds: 3),
         content: Row(

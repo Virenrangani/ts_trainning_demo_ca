@@ -6,6 +6,7 @@ import 'package:ts_training_demo_ca/core/constant/font_size/custom_text_style.da
 import 'package:ts_training_demo_ca/core/constant/string/custom_string.dart';
 import 'package:ts_training_demo_ca/feature/profile/widgets/custom_card.dart';
 import 'package:ts_training_demo_ca/feature/profile/widgets/custom_list_tile.dart';
+import '../../core/constant/border/custom_border_radius.dart';
 import '../../core/utils/image_picker/custom_image_picker.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -24,7 +25,7 @@ class ProfilePage extends StatelessWidget {
           height: MediaQuery.sizeOf(context).height*0.45,
           decoration: BoxDecoration(
             color: CustomColor.textLight,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: CustomBorderRadius.cir20,
           ),
           child: Column(
           children: [
@@ -45,7 +46,7 @@ class ProfilePage extends StatelessWidget {
               height: MediaQuery.sizeOf(context).height*0.45,
               decoration: BoxDecoration(
                 color: CustomColor.general,
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: CustomBorderRadius.cir28,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

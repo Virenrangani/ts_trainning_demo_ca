@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ts_training_demo_ca/core/constant/string/custom_string.dart';
 import 'package:ts_training_demo_ca/feature/cart/data/model/product_model.dart';
 
 abstract class CartDataSource {
@@ -57,7 +58,7 @@ class CartDataSourceImpl extends CartDataSource {
     try{
       await FirebaseFirestore.instance.collection("cart").doc(id).delete();
     }catch(e){
-      throw Exception("Something went to wrong" + e.toString());
+      throw Exception(CustomString.somethingWentWrong + e.toString());
     }
   }
 }

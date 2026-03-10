@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
 
+import '../../../../core/constant/border/custom_border_radius.dart';
+
 class LoadingProduct extends StatelessWidget {
   const LoadingProduct({super.key});
 
@@ -34,7 +36,7 @@ class LoadingProductGrid extends StatelessWidget {
       child: Card(
         elevation: 3,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: CustomBorderRadius.cir12,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,9 +46,7 @@ class LoadingProductGrid extends StatelessWidget {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.grey,
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(12),
-                  ),
+                  borderRadius: CustomBorderRadius.verTop12,
                 ),
               ),
             ),
@@ -60,7 +60,7 @@ class LoadingProductGrid extends StatelessWidget {
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.grey,
-                      borderRadius: BorderRadius.circular(4),
+                      borderRadius: CustomBorderRadius.cir4,
                     ),
                   ),
                   const SizedBox(height: 6),
@@ -69,7 +69,7 @@ class LoadingProductGrid extends StatelessWidget {
                     width: 60,
                     decoration: BoxDecoration(
                       color: Colors.grey,
-                      borderRadius: BorderRadius.circular(4),
+                      borderRadius: CustomBorderRadius.cir4,
                     ),
                   ),
                 ],
@@ -83,7 +83,7 @@ class LoadingProductGrid extends StatelessWidget {
                 width: 40,
                 decoration: BoxDecoration(
                   color: Colors.grey,
-                  borderRadius: BorderRadius.circular(4),
+                  borderRadius: CustomBorderRadius.cir4,
                 ),
               ),
             ),
