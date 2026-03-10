@@ -54,7 +54,6 @@ class FlipKartBannerCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width:MediaQuery.sizeOf(context).width*0.8,
       height: 150,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),

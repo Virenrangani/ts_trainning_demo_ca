@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
+import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
 import 'package:ts_training_demo_ca/feature/cart/presentation/pages/cart_page.dart';
 import 'package:ts_training_demo_ca/feature/profile/profile_page.dart';
 
@@ -48,7 +49,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         children: _pages,
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: CustomPadding.edgeSymmetricHori24Ver20,
         child: GNav(
           selectedIndex: _selectedIndex,
           onTabChange: _onItemTapped,
@@ -58,12 +59,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
           tabBorder: Border.all(color: CustomColor.textSecondary, width: 1),
           curve: Curves.easeOutExpo,
           duration:  Duration(milliseconds: 500),
-          gap: 8,
+          gap:6,
           color: CustomColor.info,
           activeColor: CustomColor.secondary,
           iconSize: 24,
           tabBackgroundColor: CustomColor.flip.withOpacity(0.2),
-          padding:  EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+          padding:  CustomPadding.edgeSymmetricHoriVer4,
           tabs: [
             GButton(icon: MdiIcons.home, text: CustomString.home),
             GButton(icon: MdiIcons.play, text: CustomString.play),

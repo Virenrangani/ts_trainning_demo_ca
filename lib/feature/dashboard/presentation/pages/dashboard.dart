@@ -49,7 +49,9 @@ class _DashboardState extends State<Dashboard> {
             }, icon: Icon(FontAwesomeIcons.cartShopping,)),
           ],
           bottom: TabBar(
+            padding: EdgeInsets.zero,
             isScrollable: true,
+            tabAlignment: TabAlignment.start,
             labelColor:CustomColor.primaryDark,
             unselectedLabelColor: Colors.grey,
             indicatorColor: CustomColor.info,

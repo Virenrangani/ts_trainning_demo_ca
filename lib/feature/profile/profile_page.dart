@@ -6,7 +6,7 @@ import 'package:ts_training_demo_ca/core/constant/font_size/custom_text_style.da
 import 'package:ts_training_demo_ca/core/constant/string/custom_string.dart';
 import 'package:ts_training_demo_ca/feature/profile/widgets/custom_card.dart';
 import 'package:ts_training_demo_ca/feature/profile/widgets/custom_list_tile.dart';
-import 'package:ts_training_demo_ca/feature/profile/widgets/image_picker.dart';
+import '../../core/utils/image_picker/custom_image_picker.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -54,7 +54,7 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(
                     height: 130,
                       width: 130,
-                      child: ImagePickerPage()
+                      child: CustomImagePicker()
                   ),
                   SizedBox(height: 20,),
                   Text(CustomString.viren,style: CustomTextStyles.bodyLarge.copyWith(color: CustomColor.textLight),),

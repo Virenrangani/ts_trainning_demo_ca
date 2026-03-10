@@ -9,10 +9,7 @@ Widget productList(List<ProductEntity> products) {
   return CustomScrollView(
     slivers: [
       SliverToBoxAdapter(
-        child: Padding(
-          padding: CustomPadding.edgeOnlyBottom12,
-          child: ScrollableCard(),
-        ),
+        child: ScrollableCard(),
       ),
 
       SliverPadding(

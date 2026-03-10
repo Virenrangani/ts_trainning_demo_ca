@@ -9,7 +9,7 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical:8,horizontal: 10),
+      margin:  EdgeInsets.symmetric(vertical:8,horizontal: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: Colors.black26, width: 1.5),
