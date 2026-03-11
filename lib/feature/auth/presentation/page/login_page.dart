@@ -159,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                                 children: [
                                   SizedBox(
                                       height: MediaQuery.of(context).size.height*0.1,
-                                      width: MediaQuery.of(context).size.width*0.40,
+                                      width: MediaQuery.of(context).size.width*0.45,
                                       child: CustomCard(
                                         onTap:() {
                                           context.read<LoginCubit>().signInWithGoogle();
@@ -187,27 +187,29 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(CustomString.notAccount,style:CustomTextStyles.bodySmall,),
-                        CustomInkwellButton(
-                          text: CustomString.signUp,
-                          onTap:(){
-                            Navigator.push(
-                                context, MaterialPageRoute(builder: (context)=>SignUpPage()));
-                          }, textStyle: CustomTextStyles.bodyMedium,
-                        ),
-                      ],
-                    ),
-
-                    SizedBox(height:50,),
+                    // SizedBox(height:50,),
                   ],
                 ),
               );
             },
           ),
-        )
+        ),
+      bottomNavigationBar: Padding(
+        padding: CustomPadding.edgeAll20,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(CustomString.notAccount,style:CustomTextStyles.bodySmall,),
+            CustomInkwellButton(
+              text: CustomString.signUp,
+              onTap:(){
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context)=>SignUpPage()));
+              }, textStyle: CustomTextStyles.bodyMedium,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

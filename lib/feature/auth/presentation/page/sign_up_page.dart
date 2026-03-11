@@ -2,7 +2,9 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
 import 'package:ts_training_demo_ca/core/constant/font_size/custom_text_style.dart';
+import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
 import 'package:ts_training_demo_ca/core/constant/string/custom_string.dart';
 import 'package:ts_training_demo_ca/core/validation/email_password_validation/email_password_validation.dart';
 import 'package:ts_training_demo_ca/core/widget/inkwell_button/custom_inkwell_button.dart';
@@ -69,104 +71,105 @@ class _SignUpPageState extends State<SignUpPage> {
               },
 
               builder: (context,state){
-                return SafeArea(
-                  child: Container(
-                      padding:EdgeInsets.only(top:60,left: 30,right: 30),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(CustomString.signUp,style: CustomTextStyles.h1,),
-                          Text(CustomString.signUpEntro,style: CustomTextStyles.bodyMedium),
-                          SizedBox(height: 50,),
-                          Expanded(
-                            child: SingleChildScrollView(
-                              child: Form(
-                                  key: _formkey,
-                                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                                  child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(CustomString.name,style: CustomTextStyles.bodyLarge,),
-                                        SizedBox(height: 7,),
-                                        CustomFormField(
-                                          controller: nameController,
-                                          labelText: CustomString.name,
-                                          hintText: CustomString.nameHint,
-                                          prefixIcon: Icons.person_2_outlined,
-                                        ),
-                                        SizedBox(height: 15,),
-                                        Text(CustomString.email,style: CustomTextStyles.bodyLarge,),
-                                        SizedBox(height: 7,),
-                                        CustomFormField(
-                                          controller: emailController,
-                                          labelText:CustomString.email ,
-                                          hintText:CustomString.emailHint,
-                                          prefixIcon: Icons.mail_outline,
-                                          validator:(_)=>emailError,
-                                          onChanged: changedEmail,
-                                        ),
-                                        SizedBox(height: 15,),
-                                        Text(CustomString.password,style: CustomTextStyles.bodyLarge,),
-                                        SizedBox(height: 7,),
-                                        CustomFormField(
-                                            controller: passwordController,
-                                            labelText: CustomString.password,
-                                            hintText: CustomString.passwordHint,
-                                            obscureText: true,
-                                            suffixIcon: Icons.remove_red_eye_outlined,
-                                            prefixIcon: Icons.password_outlined,
-                                            validator: (_)=>passwordError,
-                                            onChanged: changedPassword,
-                                        ),
-                                        SizedBox(height: 35,),
-                                                
-                                        state is AuthLoading ? CircularProgressIndicator() :
-                                        CustomElevatedButton(
-                                            borderRadius:10,
-                                            width:MediaQuery.of(context).size.width,
-                                            height: MediaQuery.of(context).size.height*0.06,
-                                            isLoading: state is AuthLoading,
-                                            onPressed: ()async{
-                                              if(_formkey.currentState!.validate()){
-                                                context.read<SignUpCubit>().signUp(
-                                                   nameController.text,
-                                                   emailController.text,
-                                                   passwordController.text,
-                                                );
-                                                await FirebaseAnalytics.instance.logSignUp(
-                                                    signUpMethod:CustomString.signupCrash
-                                                );
-                                              }
-                                            }, text: CustomString.signUp
-                                        ),
-                              
-                                      ]
-                                  )
-                              ),
+                return Container(
+                    padding:CustomPadding.edgeOnlyTop60LeftRight30,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(CustomString.signUp,style: CustomTextStyles.h1,),
+                        Text(CustomString.signUpEntro,style: CustomTextStyles.bodyMedium),
+                        SizedBox(height: 50,),
+                        Expanded(
+                          child: SingleChildScrollView(
+                            child: Form(
+                                key: _formkey,
+                                autovalidateMode: AutovalidateMode.onUserInteraction,
+                                child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(CustomString.name,style: CustomTextStyles.bodyLarge,),
+                                      SizedBox(height: 7,),
+                                      CustomFormField(
+                                        controller: nameController,
+                                        labelText: CustomString.name,
+                                        hintText: CustomString.nameHint,
+                                        prefixIcon: Icons.person_2_outlined,
+                                      ),
+                                      SizedBox(height: 15,),
+                                      Text(CustomString.email,style: CustomTextStyles.bodyLarge,),
+                                      SizedBox(height: 7,),
+                                      CustomFormField(
+                                        controller: emailController,
+                                        labelText:CustomString.email ,
+                                        hintText:CustomString.emailHint,
+                                        prefixIcon: Icons.mail_outline,
+                                        validator:(_)=>emailError,
+                                        onChanged: changedEmail,
+                                      ),
+                                      SizedBox(height: 15,),
+                                      Text(CustomString.password,style: CustomTextStyles.bodyLarge,),
+                                      SizedBox(height: 7,),
+                                      CustomFormField(
+                                          controller: passwordController,
+                                          labelText: CustomString.password,
+                                          hintText: CustomString.passwordHint,
+                                          obscureText: true,
+                                          suffixIcon: Icons.remove_red_eye_outlined,
+                                          prefixIcon: Icons.password_outlined,
+                                          validator: (_)=>passwordError,
+                                          onChanged: changedPassword,
+                                      ),
+                                      SizedBox(height: 35,),
+
+                                      state is AuthLoading ? CircularProgressIndicator() :
+                                      CustomElevatedButton(
+                                          borderRadius:10,
+                                          width:MediaQuery.of(context).size.width,
+                                          height: MediaQuery.of(context).size.height*0.06,
+                                          isLoading: state is AuthLoading,
+                                          onPressed: ()async{
+                                            if(_formkey.currentState!.validate()){
+                                              context.read<SignUpCubit>().signUp(
+                                                 nameController.text,
+                                                 emailController.text,
+                                                 passwordController.text,
+                                              );
+                                              await FirebaseAnalytics.instance.logSignUp(
+                                                  signUpMethod:CustomString.signupCrash
+                                              );
+                                            }
+                                          }, text: CustomString.signUp
+                                      ),
+                                    ]
+                                )
                             ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(CustomString.alreadyHaveAccount,style:CustomTextStyles.bodySmall,),
-                              CustomInkwellButton(
-                                onTap: (){
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context)=>LoginPage())
-                                  );
-                                }, text: CustomString.login,
-                                textStyle: CustomTextStyles.bodyMedium,
-                              )
-                            ],
-                          ),
-                        ],
-                      )
-                  ),
+                        ),
+
+                      ],
+                    )
                 );
               }
           ),
-        )
+        ),
+      bottomNavigationBar: Padding(
+        padding: CustomPadding.edgeAll20,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(CustomString.alreadyHaveAccount,style:CustomTextStyles.bodySmall,),
+            CustomInkwellButton(
+              onTap: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context)=>LoginPage())
+                );
+              }, text: CustomString.login,
+              textStyle: CustomTextStyles.bodyMedium,
+            )
+          ],
+        ),
+      ),
     );
   }
 }

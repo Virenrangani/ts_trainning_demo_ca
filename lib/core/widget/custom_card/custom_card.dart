@@ -44,43 +44,34 @@ class CustomCard extends StatelessWidget {
         child: Padding(
           padding: padding ?? CustomPadding.edgeAll16,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Column(
-                children:[
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (icon != null)
-                        Center(
-                          child: Icon(
-                            icon,
-                            size: 30,
-                          ),
-                        ),
-
-                      if (icon != null) const SizedBox(height: 8),
-
-                      if (title != null)
-                        Center(
-                          child: Text(
-                            title!,
-                            style: CustomTextStyles.bodyLarge
-                          ),
-                        ),
-
-                      // if (subtitle != null) const SizedBox(height: 6),
-                    ],
+              if (icon != null)
+                Center(
+                  child: Icon(
+                    icon,
+                    size: 30,
                   ),
-                  if (subtitle != null)
-                    Text(
-                      subtitle!,
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey.shade600,
-                      ),
-                    ),
-                ],
-              ),
+                ),
+              SizedBox(width:10,),
+              if (icon != null) const SizedBox(height: 8),
+
+              if (title != null)
+                Center(
+                  child: Text(
+                    title!,
+                    style: CustomTextStyles.bodyLarge,
+                    overflow:TextOverflow.ellipsis,
+                  ),
+                ),
+              if (subtitle != null)
+                Text(
+                  subtitle!,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey.shade600,
+                  ),
+                ),
               if (imageUrl != null)
                 ClipRRect(
                   borderRadius: CustomBorderRadius.cir12,

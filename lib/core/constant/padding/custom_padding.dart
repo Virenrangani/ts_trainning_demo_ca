@@ -42,6 +42,8 @@ class CustomPadding {
   static const edgeOnlyTop8=EdgeInsets.only(top: 8);
   static const edgeOnlyTop12=EdgeInsets.only(top: 12);
 
+  static const edgeOnlyTop60LeftRight30=EdgeInsets.only(top:60,left: 30,right: 30);
+
 
 
 
