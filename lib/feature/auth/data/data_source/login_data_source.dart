@@ -19,6 +19,7 @@ class LoginDataSourceImpl implements LoginDataSource {
 
   @override
   Future<UserModel> login(String email, String password) async {
+    await Future.delayed(Duration(seconds: 1));
     try {
       final result = await firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
@@ -37,6 +38,7 @@ class LoginDataSourceImpl implements LoginDataSource {
 
   @override
   Future<UserModel> signInWithGoogle() async{
+    await Future.delayed(Duration(seconds: 1));
     await GoogleSignIn().signOut();
     final googleUser=await GoogleSignIn().signIn();
 

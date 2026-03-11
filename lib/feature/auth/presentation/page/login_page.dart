@@ -161,8 +161,10 @@ class _LoginPageState extends State<LoginPage> {
                                       height: MediaQuery.of(context).size.height*0.1,
                                       width: MediaQuery.of(context).size.width*0.45,
                                       child: CustomCard(
+                                        color1:CustomColor.textSecondary,
+                                        color2: CustomColor.info,
                                         onTap:() {
-                                          context.read<LoginCubit>().signInWithGoogle();
+                                          // context.read<LoginCubit>().signInWithGoogle();
                                         } ,
                                         icon:FontAwesomeIcons.google,
                                         title: CustomString.signInWithGoogle,
@@ -172,6 +174,8 @@ class _LoginPageState extends State<LoginPage> {
                                       height: MediaQuery.of(context).size.height*0.1,
                                       width: MediaQuery.of(context).size.width*0.40,
                                       child: CustomCard(
+                                        color1:CustomColor.textSecondary,
+                                        color2: CustomColor.info,
                                         onTap:() {
                                           // context.read<LoginCubit>().signInWithGoogle();
                                         } ,
