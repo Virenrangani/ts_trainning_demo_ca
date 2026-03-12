@@ -5,6 +5,7 @@ import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
 import 'package:ts_training_demo_ca/core/constant/font_size/custom_text_style.dart';
 import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
 import 'package:ts_training_demo_ca/core/constant/string/custom_string.dart';
+import 'package:ts_training_demo_ca/core/router/navigation_route.dart';
 import 'package:ts_training_demo_ca/core/widget/text_form_field/custom_text_form_field.dart';
 import 'package:ts_training_demo_ca/feature/cart/presentation/pages/cart_page.dart';
 import 'package:ts_training_demo_ca/feature/dashboard/presentation/widgets/scrollable_card.dart';
@@ -25,7 +26,6 @@ class _DashboardState extends State<Dashboard> with SingleTickerProviderStateMix
   void initState(){
     super.initState();
     controller=AnimationController(vsync: this,duration: Duration(seconds: 3));
-    // controller.forward();
     controller.repeat(reverse: true);
 
     colorAnimation=ColorTween(
@@ -72,7 +72,7 @@ class _DashboardState extends State<Dashboard> with SingleTickerProviderStateMix
           actions: [
             IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.heart,)),
             IconButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>CartPage()));
+              Navigator.push(context, NavigationRoute.cartRoute());
             }, icon: Icon(FontAwesomeIcons.cartShopping,)),
           ],
           bottom: TabBar(
