@@ -8,6 +8,7 @@ import 'package:ts_training_demo_ca/feature/auth/presentation/page/login_page.da
 import 'package:ts_training_demo_ca/feature/auth/presentation/page/sign_up_page.dart';
 import 'package:ts_training_demo_ca/feature/bottom_nav_bar/bottom_nav_bar.dart';
 import 'package:ts_training_demo_ca/feature/dashboard/presentation/pages/dashboard.dart';
+import 'package:ts_training_demo_ca/native/battery_level/battery_level.dart';
 import 'firebase_options.dart';
 
 void main() async{
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUpPage()
+      home: BatteryPage()
     );
   }
 }
