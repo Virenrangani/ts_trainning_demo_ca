@@ -2,7 +2,6 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:ts_training_demo_ca/core/constant/color/custom_color.dart';
 import 'package:ts_training_demo_ca/core/constant/font_size/custom_text_style.dart';
 import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
 import 'package:ts_training_demo_ca/core/constant/string/custom_string.dart';
@@ -15,6 +14,7 @@ import 'package:ts_training_demo_ca/feature/auth/presentation/page/login_page.da
 import '../../../../core/widget/elevated_button/custom_elevated_button.dart';
 import '../../../../core/widget/text_form_field/custom_text_form_field.dart';
 import '../cubit/auth_state.dart';
+import '../cubit/login_cubit.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -161,8 +161,13 @@ class _SignUpPageState extends State<SignUpPage> {
             CustomInkwellButton(
               onTap: (){
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context)=>LoginPage())
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => BlocProvider(
+                      create: (_) => GetIt.I<LoginCubit>(),
+                      child: const LoginPage(),
+                    ),
+                  ),
                 );
               }, text: CustomString.login,
               textStyle: CustomTextStyles.bodyMedium,

@@ -30,8 +30,7 @@ class LoginDataSourceImpl implements LoginDataSource {
       }
       return UserModel.fromFirebase(user);
     } catch (e) {
-      print(e.toString());
-      rethrow;
+      throw Exception(CustomString.somethingWentWrong);
     }
   }
 

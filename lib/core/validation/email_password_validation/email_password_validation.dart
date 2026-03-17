@@ -27,7 +27,7 @@ String? validatePassword(String password) {
   }
 
   if (!RegExp(r'[a-z]').hasMatch(password)) {
-    return CustomString.atLeastOneUpperCase;
+    return CustomString.atLeastOneLowerCase;
   }
 
   if (!RegExp(r'[0-9]').hasMatch(password)) {
