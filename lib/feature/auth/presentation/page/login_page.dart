@@ -1,7 +1,6 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:ts_training_demo_ca/core/constant/padding/custom_padding.dart';
 import 'package:ts_training_demo_ca/core/widget/custom_card/custom_card.dart';
 import 'package:ts_training_demo_ca/feature/bottom_nav_bar/bottom_nav_bar.dart';
@@ -32,7 +31,6 @@ class _LoginPageState extends State<LoginPage> {
   final _formkey = GlobalKey<FormState>();
   TextEditingController emailController=TextEditingController();
   TextEditingController passwordController=TextEditingController();
-
 
   void changedEmail(String value){
     setState(() {
@@ -110,13 +108,13 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                                 SizedBox(height: 15,),
                                 CustomInkwellButton(
+                                  key: Key("forget_password"),
                                   text: CustomString.forgetPassword,
                                   onTap: (){}, textStyle: CustomTextStyles.bodySmall,
                                 ),
                                 SizedBox(height: 25,),
                                 state is AuthLoading ? CircularProgressIndicator():
                                 CustomElevatedButton(
-                                  key: Key("login_key"),
                                   borderRadius:10,
                                   width:MediaQuery.of(context).size.width,
                                   height: MediaQuery.of(context).size.height*0.06,
@@ -199,6 +197,7 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             Text(CustomString.notAccount,style:CustomTextStyles.bodySmall,),
             CustomInkwellButton(
+              key: Key("SignUp_Key"),
               text: CustomString.signUp,
               onTap:(){
                 Navigator.push(

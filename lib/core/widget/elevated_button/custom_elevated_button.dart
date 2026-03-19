@@ -75,6 +75,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> with Single
           width: widget.width,
           height: widget.height,
           child: ElevatedButton(
+            key: Key("login_key"),
             onPressed: widget.isLoading ? null : handleTap,
             style: ElevatedButton.styleFrom(
               backgroundColor:colorAnimation.value,

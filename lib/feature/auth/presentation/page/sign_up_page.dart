@@ -159,6 +159,7 @@ class _SignUpPageState extends State<SignUpPage> {
           children: [
             Text(CustomString.alreadyHaveAccount,style:CustomTextStyles.bodySmall,),
             CustomInkwellButton(
+              key:const Key("signUp_key"),
               onTap: (){
                 Navigator.push(
                   context,
